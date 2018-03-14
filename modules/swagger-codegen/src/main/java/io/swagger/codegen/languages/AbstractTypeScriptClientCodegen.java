@@ -431,7 +431,7 @@ public abstract class AbstractTypeScriptClientCodegen extends DefaultCodegen imp
         if ("number".equals(datatype)) {
             return value;
         } else {
-            return "\'" + escapeText(value) + "\'";
+            return "\"" + escapeText(value) + "\"";
         }
     }
 
@@ -564,7 +564,7 @@ public abstract class AbstractTypeScriptClientCodegen extends DefaultCodegen imp
     @Override
     public String escapeQuotationMark(String input) {
         // remove ', " to avoid code injection
-        return input.replace("\"", "").replace("'", "");
+        return input.replace("\"", "\\\"");
     }
 
     @Override
